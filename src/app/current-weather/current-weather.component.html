@@ -1,4 +1,4 @@
-<h1 class="center" *ngIf='resultFound()'>Current weather for {{currentWeather.name}}</h1>
+<h1 class="center" *ngIf='resultFound()'>Current weather for <span class="cityColor">{{currentWeather.name}}</span></h1>
 <table *ngIf='resultFound()'>
     <tbody>
         <tr>
@@ -6,8 +6,10 @@
                 <h3>Current Temperature:</h3>
             </td>
             <td>
-                <h3>{{currentWeather.main?.temp - 0 | number:'1.0-0'}}<sup>o</sup>F &nbsp;&nbsp;&nbsp;&nbsp;~Feels like
-                    {{currentWeather.main?.feels_like}}</h3>
+                <h3>{{currentWeather.main?.temp - 0 | number:'1.0-0'}}<sup>o</sup>F &nbsp;&nbsp;|&nbsp;&nbsp; Feels
+                    like
+                    ~
+                    {{currentWeather.main?.feels_like}}<sup>o</sup>F</h3>
             </td>
         </tr>
         <tr>

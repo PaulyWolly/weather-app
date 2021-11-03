@@ -32,3 +32,7 @@ h1.center {
 td h3 {
     font-size: 20px;
 }
+
+.cityColor {
+    color: blue;
+}
