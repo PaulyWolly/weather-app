@@ -1,0 +1,98 @@
+<h1 class="center" *ngIf='resultFound()'>Current weather for {{currentWeather.name}}</h1>
+<table *ngIf='resultFound()'>
+    <tbody>
+        <tr>
+            <td>
+                <h3>Current Temperature:</h3>
+            </td>
+            <td>
+                <h3>{{currentWeather.main?.temp - 0 | number:'1.0-0'}}<sup>o</sup>F &nbsp;&nbsp;&nbsp;&nbsp;~Feels like
+                    {{currentWeather.main?.feels_like}}</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Maximum Temperature:</h3>
+            </td>
+            <td>
+                <h3>{{currentWeather.main?.temp_max - 0 | number:'1.0-0'}}<sup>o</sup>F</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Minimum Temperature:</h3>
+            </td>
+            <td>
+                <h3>{{currentWeather.main?.temp_min - 0 | number:'1.0-0'}}<sup>o</sup>F</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>------------------------------------------------------------------</p>
+            </td>
+            <td>
+                <p>-------------------------------------------------------------------</p>
+            </td>
+        <tr>
+            <td>
+                <h3>Clouds:</h3>
+            </td>
+            <td>
+                <h3>{{currentWeather.clouds?.all}}%</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Humidity</h3>
+            </td>
+            <td>
+                <h3>{{currentWeather.main?.humidity}}%</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Pressure</h3>
+            </td>
+            <td>
+                <h3>{{currentWeather.main?.pressure}}mb</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Wind</h3>
+            </td>
+            <td>
+                <h3>{{currentWeather.wind.speed}} mph</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Sunrise</h3>
+            </td>
+            <td>
+                <h3>{{currentWeather.sys?.sunrise*1000 | date:'long'}}</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Sunset</h3>
+            </td>
+            <td>
+                <h3>{{currentWeather.sys?.sunset*1000 | date:'long'}}</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Visibility</h3>
+            </td>
+            <td>
+                <h3>{{currentWeather.visibility}}m &nbsp;&nbsp;&nbsp;*due to "<span>{{
+                        currentWeather.weather[0].description
+                        }}</span>"</h3>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div *ngIf='!resultFound()'>
+    <h1 class="center">{{msg || 'Failed to get weather.'}}</h1>
+</div>
